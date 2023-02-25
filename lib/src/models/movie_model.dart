@@ -53,7 +53,7 @@ class Movies {
   List<Movie> items = [];
   Movies();
   Movies.fromJsonList(List<dynamic> jsonList) {
-    if (jsonList == null) return;
+    // if (jsonList == null) return;
     for (var element in jsonList) {
       final movie = new Movie.fromJsonMap(element);
       items.add(movie);
