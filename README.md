@@ -1,16 +1,11 @@
-# cinemar_mobile_app
+# Cinemar
+My first Flutter project based on [cinemar](https://github.com/SPablo2191/CinemarWeb) ,project released in 2022 and developed with angular (Front) and Flask(Back).
 
-A new Flutter project.
+## Tips:
+- you may need to add an .env file on the root directory in order to make it work; this project used env variables such as apiURL and apiKey and by using dotenv package of flutter, they are read from the file and used by the providers. The correct format is:
+````
+API_URL= <<URL>>
+API_KEY = <<APIKEY>>
+LANGUAGE =<<en-US>> english as default
+````
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
