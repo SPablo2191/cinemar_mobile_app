@@ -1,5 +1,5 @@
-import 'package:card_swiper/card_swiper.dart';
 import 'package:flutter/material.dart';
+import 'package:cinemar_mobile_app/src/widgets/card_swiper_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -20,23 +20,6 @@ class HomePage extends StatelessWidget {
   }
 
   _cardSwiper() {
-    return Container(
-      width: double.infinity,
-      padding: const EdgeInsets.only(top: 10.0),
-      height: 300.0,
-      child: Swiper(
-        layout: SwiperLayout.STACK,
-        itemWidth: 200.0,
-        itemBuilder: (BuildContext context, int index) {
-          return Image.network(
-            "https://picsum.photos/350/150",
-            fit: BoxFit.fill,
-          );
-        },
-        itemCount: 3,
-        pagination: const SwiperPagination(),
-        control: const SwiperControl(),
-      ),
-    );
+    return CardSwiper(items: [1, 2, 3, 4, 5]);
   }
 }
