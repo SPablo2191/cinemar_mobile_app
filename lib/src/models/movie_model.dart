@@ -13,7 +13,6 @@ class Movie {
   bool? video;
   double? voteAverage;
   int? voteCount;
-
   Movie({
     this.adult,
     this.backdropPath,
@@ -30,12 +29,11 @@ class Movie {
     this.voteAverage,
     this.voteCount,
   });
-
   Movie.fromJsonMap(Map<String, dynamic> json) {
     adult = json['adult'];
     backdropPath = json['backdrop_path'];
     genreIds = json['genre_ids'].cast<int>();
-    id = json['id'].cast<int>();
+    id = json['id'];
     originalLanguage = json['original_language'];
     originalTitle = json['original_title'];
     overview = json['overview'];
@@ -47,6 +45,10 @@ class Movie {
     voteAverage = json['vote_average'] / 1;
     voteCount = json['vote_count'];
   }
+  getPosterImage() {
+    if (posterPath == null) return 'assets/img/no-image.jpg';
+    return 'https://image.tmdb.org/t/p/w500/$posterPath';
+  }
 }
 
 class Movies {
@@ -55,7 +57,7 @@ class Movies {
   Movies.fromJsonList(List<dynamic> jsonList) {
     // if (jsonList == null) return;
     for (var element in jsonList) {
-      final movie = new Movie.fromJsonMap(element);
+      final movie = Movie.fromJsonMap(element);
       items.add(movie);
     }
   }

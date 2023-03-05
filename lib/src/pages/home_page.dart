@@ -4,7 +4,6 @@ import 'package:cinemar_mobile_app/src/widgets/card_swiper_widget.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -21,8 +20,19 @@ class HomePage extends StatelessWidget {
   }
 
   _cardSwiper() {
-    MovieProvider movieProvider = new MovieProvider();
-    movieProvider.getNowPlaying();
-    return CardSwiper(items: [1, 2, 3, 4, 5]);
+    // in order to return async data => future builder
+    final MovieProvider movieProvider = MovieProvider();
+    print(movieProvider.getNowPlaying());
+    return FutureBuilder(
+      future: movieProvider.getNowPlaying(),
+      builder: (BuildContext context, AsyncSnapshot snapshot) {
+        if (snapshot.hasData) {
+          return CardSwiper(items: snapshot.data);
+        } else {
+          return const SizedBox(
+              height: 400, child: Center(child: CircularProgressIndicator()));
+        }
+      },
+    );
   }
 }
