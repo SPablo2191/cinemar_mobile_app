@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 import 'package:cinemar_mobile_app/src/providers/movie_provider.dart';
 import 'package:cinemar_mobile_app/src/widgets/card_swiper_widget.dart';
@@ -10,6 +12,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
         extendBodyBehindAppBar: true,
         appBar: AppBar(
+          flexibleSpace: ClipRRect(
+              child: BackdropFilter(
+            filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
+            child: Container(
+              color: Colors.transparent,
+            ),
+          )),
           elevation: 0,
           title: Text(
             'Cinemar',
@@ -28,7 +37,7 @@ class HomePage extends StatelessWidget {
         ),
         body: Column(
           children: [
-            SizedBox(
+            const SizedBox(
               height: 50,
             ),
             _cardSwiper()
