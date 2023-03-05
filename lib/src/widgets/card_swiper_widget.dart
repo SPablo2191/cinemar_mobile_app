@@ -25,8 +25,6 @@ class CardSwiper extends StatelessWidget {
           );
         },
         itemCount: items.length,
-        pagination: const SwiperPagination(),
-        control: const SwiperControl(),
       ),
     );
   }
